@@ -38,7 +38,8 @@ app.get('/users', (req, res) => {
 
     fs.readFile(usersArr, (err, data) => {
         if (err) {
-            return console.error(err);
+            res.render('error');
+            return;
         }
 
         const users = JSON.parse(data.toString());
@@ -55,7 +56,8 @@ app.post('/login', ((req, res) => {
 
     fs.readFile(usersArr, (err, data) => {
         if (err) {
-            return console.error(err);
+            res.render('error');
+            return;
         }
 
         const users = JSON.parse(data.toString());
@@ -76,7 +78,8 @@ app.post('/reg', ((req, res) => {
     
     fs.readFile(usersArr, ((err, data) => {
         if (err) {
-            return console.error(err);
+            res.render('error');
+            return;
         }
         
         const users = JSON.parse(data.toString());
@@ -89,7 +92,8 @@ app.post('/reg', ((req, res) => {
         users.push(req.body);
         fs.writeFile(usersArr, JSON.stringify(users), err => {
             if (err) {
-                return console.error(err);
+                res.render('error');
+                return;
             }
         });
         
