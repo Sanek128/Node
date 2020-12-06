@@ -12,9 +12,11 @@ module.exports = {
     },
 
     deleteUser: (userEmail) => {
-        dataBase.find((user) => {
-            user.email === userEmail;
-            dataBase.splice(user, 1);
-        });
+        dataBase.forEach((user) => {
+
+            if (user.email === userEmail) {
+                dataBase.splice(user, 1);
+            }
+        })
     }
 }

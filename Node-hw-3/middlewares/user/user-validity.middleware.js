@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
     try {
         const newUser = req.body;
 
-        dataBase.forEach( user => {
+        dataBase.forEach((user) => {
 
             if (user.name === newUser.name || user.email === newUser.email) {
                 throw new Error('User with such data already exists');
